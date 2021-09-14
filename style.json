@@ -1,0 +1,12 @@
+{
+  "fonts": {
+    "header": "Righteous",
+    "body": "Montserrat"
+  },
+  "colors": {
+    "primary": "#ffcd00",
+    "secondary": "#0168ab",
+    "white": "#FDFAEB",
+    "black": "#0E0B00"
+  }
+}
