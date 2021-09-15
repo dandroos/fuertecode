@@ -12,6 +12,7 @@ collections:
     files:
       - label: "Gallery"
         name: "gallery"
+        media_folder: "./gallery"
         file: "content/gallery.md"
         fields:
           - label: "Gallery Images"
