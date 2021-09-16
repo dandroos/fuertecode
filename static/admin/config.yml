@@ -17,6 +17,7 @@ collections:
         fields:
           - label: "Gallery Images"
             name: "gallery_images"
+            summary: "{{fields.gallery_image}}"
             widget: "list"
             fields:
               - label: "Gallery Image"
@@ -28,66 +29,142 @@ collections:
                     widget: "image"
                   - label: "Caption"
                     name: "caption"
-      # TODO: add the pages content
-  #     - label: "Homepage"
-  #       name: "homepage"
-  #       file: "content/homepage.md"
-  #       fields:
-  #         - label: "Image"
-  #           name: homepage_image
-  #           widget: image
-  #         - label: "Heading"
-  #           name: homepage_heading
-  #           widget: string
-  #         - label: "Subheading"
-  #           name: homepage_subheading
-  #           widget: string
-  #         - label: "Call to action"
-  #           name: homepage_cta
-  #           widget: string
-  #     - label: "About"
-  #       name: "about"
-  #       file: "content/about.md"
-  #       fields:
-  #         - label: "Slideshow images"
-  #           name: about_slideshow_images
-  #           widget: "list"
-  #           summary: "{{fields.image}}"
-  #           field: { label: Image, name: image, widget: image }
-  #         - label: "Body"
-  #           name: about_body
-  #           widget: markdown
-  #           buttons: ["bold", "italic"]
-  #           editor_components: []
-  #           modes: ["raw"]
-  #     - label: "Contact"
-  #       name: "contact"
-  #       file: "content/contact.md"
-  #       fields:
-  #         - label: "Contact form introduction"
-  #           name: contact_form_intro
-  #           widget: "string"
-  #         - label: "Message sending text"
-  #           name: contact_form_message_sending
-  #           widget: "string"
-  #         - label: "Message error text"
-  #           name: contact_form_message_error
-  #           widget: "string"
-  #         - label: "Message sent text"
-  #           name: contact_form_message_sent
-  #           widget: "string"
-  # - label: "Admin"
-  #   name: "admin"
-  #   editor:
-  #     preview: false
-  #   files:
-  #     - label: "Contact and social"
-  #       name: "admin"
-  #       file: "content/contact-info.md"
-  #       fields:
-  #         - label: "Email"
-  #           name: email
-  #           widget: string
-  #         - label: "Instagram"
-  #           name: instagram
-  #           widget: string
+      - label: "Homepage"
+        name: "homepage"
+        file: "content/homepage.md"
+        fields:
+          - label: "Image (Portrait)"
+            name: homepage_image_portrait
+            widget: image
+          - label: "Image (Landscape)"
+            name: homepage_image_landscape
+            widget: image
+          - label: "Heading"
+            name: homepage_heading
+          - label: "Subheading"
+            name: homepage_subheading
+          - label: "Call to action"
+            name: homepage_cta
+      - label: "Services"
+        name: "services"
+        file: "content/services.md"
+        fields:
+          - label: "Page Heading"
+            name: "services_heading"
+          - label: "Services"
+            name: "services"
+            widget: "object"
+            fields:
+              - label: "Websites and Web Applications"
+                name: "websites_and_web_applications"
+                widget: "object"
+                fields:
+                  - label: "Heading"
+                    name: "websites_and_web_applications_heading"
+                  - label: "Body"
+                    name: "websites_and_web_applications_body"
+                    widget: "markdown"
+              - label: "Mobile Applications"
+                name: "mobile_applications"
+                widget: "object"
+                fields:
+                  - label: "Heading"
+                    name: "mobile_applications_heading"
+                  - label: "Body"
+                    name: "mobile_applications_body"
+                    widget: "markdown"
+              - label: "Standalone Applications"
+                name: "standalone_applications"
+                widget: "object"
+                fields:
+                  - label: "Heading"
+                    name: "standalone_applications_heading"
+                  - label: "Body"
+                    name: "standalone_applications_body"
+                    widget: "markdown"
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - label: "FAQ"
+                name: "faq"
+                widget: "object"
+                fields:
+                  - label: "Question"
+                    name: "question"
+                  - label: "Answer"
+                    name: "answer"
+                    widget: "markdown"
+          - label: "Call to action heading"
+            name: services_cta_heading
+          - label: "Call to action button text"
+            name: services_cta_button_text
+      - label: "About"
+        name: "about"
+        file: "content/about.md"
+        fields:
+          - label: "Page Heading"
+            name: "about_heading"
+          - label: "Biog"
+            name: "biog"
+            widget: "markdown"
+          - label: "My Links"
+            name: "my_links"
+            widget: "list"
+            fields:
+              - label: "Link"
+                name: "link"
+                widget: "object"
+                fields:
+                  - label: "Name"
+                    name: "link_name"
+                  - label: "Icon"
+                    name: "link_icon"
+                  - label: "URL"
+                    name: "link_url"
+                  - label: "Description"
+                    name: "link_description"
+          - label: "Toolbox"
+            name: "toolbox"
+            widget: "object"
+            fields:
+              - label: "Languages"
+                name: "toolbox_languages"
+                widget: "list"
+                field: "string"
+              - label: "Other tech"
+                name: "toolbox_other"
+                widget: "list"
+                field: "string"
+      - label: "Contact"
+        name: "contact"
+        file: "content/contact.md"
+        fields:
+          - label: "Contact buttons intro"
+            name: "contact_buttons_intro"
+          - label: "Silent phone warning"
+            name: "silent_phone_warning"
+            widget: "text"
+          - label: "Contact form introduction"
+            name: contact_form_intro
+          - label: "Message sending text"
+            name: contact_form_message_sending
+          - label: "Message error text"
+            name: contact_form_message_error
+          - label: "Message sent text"
+            name: contact_form_message_sent
+  - label: "Admin"
+    name: "admin"
+    editor:
+      preview: false
+    files:
+      - label: "Contact and social"
+        name: "admin"
+        file: "content/contact-info.md"
+        fields:
+          - label: "Phone"
+            name: phone
+          - label: "Email"
+            name: email
+          - label: "Instagram"
+            name: instagram
