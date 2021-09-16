@@ -131,13 +131,13 @@ collections:
               - label: "Languages"
                 name: "toolbox_languages"
                 widget: "list"
-                field:
+                fields:
                   - label: "Web/Programming Language"
                     name: "toolbox_language"
               - label: "Other tech"
                 name: "toolbox_other"
                 widget: "list"
-                field:
+                fields:
                   - label: "Technology"
                     name: "toolbox_technology"
       - label: "Contact"
