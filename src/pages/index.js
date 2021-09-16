@@ -8,16 +8,6 @@ import { connect } from "react-redux"
 import Seo from "../components/seo"
 
 const IndexPage = ({ isMobile }) => {
-  const data = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `).site.siteMetadata
   return (
     <>
       <Seo title="Home" />

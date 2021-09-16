@@ -1,4 +1,10 @@
-import { AT_TOP, IS_MOBILE, MOBILE_MENU, SITE_READY } from "./types"
+import {
+  AT_TOP,
+  FONTS_LOADED,
+  IS_MOBILE,
+  MOBILE_MENU,
+  SITE_READY,
+} from "./types"
 
 export const setSiteReady = payload => ({
   type: SITE_READY,
@@ -17,5 +23,10 @@ export const setMobileMenu = payload => ({
 
 export const setAtTop = payload => ({
   type: AT_TOP,
+  payload,
+})
+
+export const setFontsLoaded = payload => ({
+  type: FONTS_LOADED,
   payload,
 })
