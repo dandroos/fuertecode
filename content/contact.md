@@ -17,7 +17,7 @@ contact_buttons:
       contact_method_icon: "fas fa-envelope"
       contact_method_url: "mailto:{{ email }}"
 silent_phone_warning: "Please note that I have my phone on silent when working in order to concentrate. If I don't answer your call, please leave a message and I will call you back as soon as I see it. Thanks."
-contact_form_introduction: "You can also send me a message by completing and submitting the below form..."
+contact_form_intro: "You can also send me a message by completing and submitting the below form..."
 contact_form_send_button_text: "Send"
 contact_form_send_button_icon: "fas fa-paper-plane"
 contact_form_message_sending: "Please wait while your message is sent."
