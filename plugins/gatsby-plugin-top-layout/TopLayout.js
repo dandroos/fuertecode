@@ -22,10 +22,10 @@ function TopLayout({ children }) {
             )}&family=${style.fonts.body.replaceAll(" ", "+")}&display=swap`}
             rel="stylesheet"
           />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          />
+          <script
+            src="https://kit.fontawesome.com/bbafa08e9e.js"
+            crossorigin="anonymous"
+          ></script>
         </Helmet>
         {children}
       </ThemeProvider>

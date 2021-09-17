@@ -17,11 +17,9 @@ const Layout = ({ dispatch, location, children, assetsLoaded }) => {
   const loadFonts = () => {
     var headerFont = new FontFaceObserver(style.fonts.header)
     var bodyFont = new FontFaceObserver(style.fonts.body)
-    var materialIconsFont = new FontFaceObserver("Material Icons")
     Promise.all([
       headerFont.load(null, 10000),
       bodyFont.load(null, 10000),
-      materialIconsFont.load(null, 10000),
     ]).then(
       function () {
         dispatch(setAssetsLoaded(true))

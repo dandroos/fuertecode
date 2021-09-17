@@ -49,7 +49,7 @@ collections:
             name: homepage_cta_link
           - label: "Call to action icon"
             name: homepage_cta_icon
-            hint: "Must be a [Material Icon](https://mui.com/components/material-icons/) "
+            hint: "Must be a [Font Awesome](https://fontawesome.com) icon "
       - label: "Services"
         name: "services"
         file: "content/services.md"
@@ -68,7 +68,7 @@ collections:
                     name: "service_heading"
                   - label: "Icon"
                     name: "service_icon"
-                    hint: "Must be a [Material Icon](https://mui.com/components/material-icons/) "
+                    hint: "Must be a [Font Awesome](https://fontawesome.com) icon "
                   - label: "Body"
                     name: "service_body"
                     widget: "markdown"
@@ -97,7 +97,7 @@ collections:
             name: "services_cta_link"
           - label: "Call to action icon"
             name: "services_cta_icon"
-            hint: "Must be a [Material Icon](https://mui.com/components/material-icons/)"
+            hint: "Must be a [Font Awesome](https://fontawesome.com) icon"
       - label: "About"
         name: "about"
         file: "content/about.md"
@@ -119,7 +119,7 @@ collections:
                     name: "link_name"
                   - label: "Icon"
                     name: "link_icon"
-                    hint: "Must be a [Material Icon](https://mui.com/components/material-icons/)"
+                    hint: "Must be a [Font Awesome](https://fontawesome.com) icon"
                   - label: "URL"
                     name: "link_url"
                   - label: "Description"
@@ -159,11 +159,14 @@ collections:
                     hint: 'e.g. "Phone"'
                   - label: "Secondary text"
                     name: "contact_method_secondary"
-                    hint: 'e.g. "123 456 789"'
+                    hint: 'e.g. "123 456 789". Tags {{ phone }} and {{ email }} available.'
                     required: false
                   - label: "Icon"
                     name: "contact_method_icon"
-                    hint: "Must be a [Material Icon](https://mui.com/components/material-icons/)"
+                    hint: "Must be a [Font Awesome](https://fontawesome.com) icon"
+                  - label: "URL"
+                    name: "contact_method_url"
+                    hint: "Use {{ phone }} and {{ email }} tags when required. e.g. tel:{{ phone }}"
           - label: "Silent phone warning"
             name: "silent_phone_warning"
             widget: "text"
@@ -173,7 +176,7 @@ collections:
             name: "contact_form_send_button_text"
           - label: "Contact form send button icon"
             name: "contact_form_send_button_icon"
-            hint: "Must be a [Material Icon](https://mui.com/components/material-icons/) "
+            hint: "Must be a [Font Awesome](https://fontawesome.com) icon"
           - label: "Message sending text"
             name: "contact_form_message_sending"
           - label: "Message error text"

@@ -79,7 +79,7 @@ const IndexPage = ({ isMobile }) => {
               size="large"
               color="secondary"
               variant="contained"
-              startIcon={<Icon>info</Icon>}
+              startIcon={<Icon className="fas fa-concierge-bell" />}
               component={Link}
               to="/services"
             >
