@@ -1,8 +1,8 @@
 ---
 about_heading: About
-biog: Hi! My name is Dave! I am an Englishman fast-approaching middle age and have been living happily on the Canary Island of Fuerteventura for the past few years. When I am not in front of a computer, I am usually volunteering at my local dog rescue centre. I enjoy hanging out with, and taking photos of, all the dogs! I am also an amateur musician and enjoy playing the piano to unwind.
+biog: "Hi! My name is Dave! I am an Englishman fast-approaching middle age and have been living happily on the Canary Island of Fuerteventura for the past few years. When I am not in front of a computer, I am usually volunteering at my local dog rescue centre. I enjoy hanging out with, and taking photos of, all the dogs! I am also an amateur musician and enjoy playing the piano to unwind.
 
-I am a full-stack web developer, primarily working with the MERN stack and Gatsby. However, I have experience with other languages and tech, such as Python, PHP, Go, Electron, WordPress, Django, Laravel and more!
+I am a full-stack web developer, primarily working with the MERN stack and Gatsby. However, I have experience with other languages and tech, such as Python, PHP, Go, Electron, WordPress, Django, Laravel and more!"
 my_links:
     - link:
         link_name: Instagram
@@ -20,7 +20,7 @@ my_links:
         link_url: https://facebook.com/prosprwebdev
         link_description: I tend to use Facebook for marketing purposes only, so not much to see here! That said, if you would like to follow and share my page, I would be very grateful!
 toolbox:
-    - toolbox_languages:
+    toolbox_languages:
         - toolbox_language: "JavaScript"
         - toolbox_language: "Go"
         - toolbox_language: "Python"
@@ -29,7 +29,7 @@ toolbox:
         - toolbox_language: "Java"
         - toolbox_language: "HTML5"
         - toolbox_language: "CSS3"
-    - toolbox_other:
+    toolbox_other:
         - toolbox_technology: "React"
         - toolbox_technology: "NodeJS" 
         - toolbox_technology: "Gatsby"
