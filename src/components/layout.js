@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { AnimatePresence, motion } from "framer-motion"
 import FontFaceObserver from "fontfaceobserver"
 import { Box, useTheme, useMediaQuery, Toolbar } from "@material-ui/core"
-import { setAtTop, setFontsLoaded, setIsMobile } from "../state/actions"
+import { setAtTop, setAssetsLoaded, setIsMobile } from "../state/actions"
 import Navbar from "./Navbar"
 import MobileMenu from "./MobileMenu"
 import MobileQuickContact from "./MobileQuickContact"
@@ -13,16 +13,20 @@ import Footer from "./Footer"
 
 import style from "../../style.json"
 
-const Layout = ({ dispatch, location, children, fontsLoaded }) => {
+const Layout = ({ dispatch, location, children, assetsLoaded }) => {
   const loadFonts = () => {
     var headerFont = new FontFaceObserver(style.fonts.header)
     var bodyFont = new FontFaceObserver(style.fonts.body)
-
-    Promise.all([headerFont.load(null, 10000), bodyFont.load()]).then(
+    var materialIconsFont = new FontFaceObserver("Material Icons")
+    Promise.all([
+      headerFont.load(null, 10000),
+      bodyFont.load(null, 10000),
+      materialIconsFont.load(null, 10000),
+    ]).then(
       function () {
-        dispatch(setFontsLoaded(true))
+        dispatch(setAssetsLoaded(true))
       },
-      () => dispatch(setFontsLoaded(true))
+      () => dispatch(setAssetsLoaded(true))
     )
   }
 
@@ -71,7 +75,7 @@ const Layout = ({ dispatch, location, children, fontsLoaded }) => {
   }, [])
 
   return (
-    fontsLoaded && (
+    assetsLoaded && (
       <>
         <Navbar siteTitle={data.site.siteMetadata?.title || `Title`} />
         <MobileMenu />
@@ -107,7 +111,7 @@ Layout.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  fontsLoaded: state.fontsLoaded,
+  assetsLoaded: state.assetsLoaded,
 })
 
 export default connect(mapStateToProps)(Layout)

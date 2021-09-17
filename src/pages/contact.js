@@ -13,6 +13,7 @@ import { Email, Phone, Whatsapp } from "mdi-material-ui"
 import React from "react"
 import { connect } from "react-redux"
 import ContactForm from "../components/ContactForm"
+import PageWrapper from "../components/PageWrapper"
 import Seo from "../components/seo"
 
 function ContactPage({ isMobile }) {
@@ -47,7 +48,7 @@ function ContactPage({ isMobile }) {
   )
 
   return (
-    <>
+    <PageWrapper>
       <Seo title="Contact" />
       <Container maxWidth="md">
         <Typography variant="h2" gutterBottom>
@@ -93,7 +94,7 @@ function ContactPage({ isMobile }) {
           <ContactForm />
         </Box>
       </Container>
-    </>
+    </PageWrapper>
   )
 }
 

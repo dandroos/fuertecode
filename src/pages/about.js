@@ -6,10 +6,11 @@ import Toolbox from "../components/Toolbox"
 import MyLinks from "../components/MyLinks"
 
 import Seo from "../components/seo"
+import PageWrapper from "../components/PageWrapper"
 
 function AboutPage({ isMobile }) {
   return (
-    <>
+    <PageWrapper>
       <Seo title="About" />
       <Container>
         <Typography variant="h2">About</Typography>
@@ -38,7 +39,7 @@ function AboutPage({ isMobile }) {
           </Grid>
         </Grid>
       </Container>
-    </>
+    </PageWrapper>
   )
 }
 

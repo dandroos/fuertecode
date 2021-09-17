@@ -43,8 +43,13 @@ collections:
             name: homepage_heading
           - label: "Subheading"
             name: homepage_subheading
-          - label: "Call to action"
-            name: homepage_cta
+          - label: "Call to action text"
+            name: homepage_cta_text
+          - label: "Call to action link"
+            name: homepage_cta_link
+          - label: "Call to action icon"
+            name: homepage_cta_icon
+            hint: "Must be a [Material Icon](https://mui.com/components/material-icons/) "
       - label: "Services"
         name: "services"
         file: "content/services.md"
@@ -53,35 +58,24 @@ collections:
             name: "services_heading"
           - label: "Services"
             name: "services"
-            widget: "object"
+            widget: "list"
             fields:
-              - label: "Websites and Web Applications"
-                name: "websites_and_web_applications"
+              - label: "Service"
+                name: "service"
                 widget: "object"
                 fields:
                   - label: "Heading"
-                    name: "websites_and_web_applications_heading"
+                    name: "service_heading"
+                  - label: "Icon"
+                    name: "service_icon"
+                    hint: "Must be a [Material Icon](https://mui.com/components/material-icons/) "
                   - label: "Body"
-                    name: "websites_and_web_applications_body"
+                    name: "service_body"
                     widget: "markdown"
-              - label: "Mobile Applications"
-                name: "mobile_applications"
-                widget: "object"
-                fields:
-                  - label: "Heading"
-                    name: "mobile_applications_heading"
-                  - label: "Body"
-                    name: "mobile_applications_body"
-                    widget: "markdown"
-              - label: "Standalone Applications"
-                name: "standalone_applications"
-                widget: "object"
-                fields:
-                  - label: "Heading"
-                    name: "standalone_applications_heading"
-                  - label: "Body"
-                    name: "standalone_applications_body"
-                    widget: "markdown"
+          - label: "FAQ image"
+            name: "faq_image"
+            widget: "image"
+            hint: "The image displayed below the FAQ heading"
           - label: "FAQs"
             name: "faqs"
             widget: "list"
@@ -96,9 +90,14 @@ collections:
                     name: "answer"
                     widget: "markdown"
           - label: "Call to action heading"
-            name: services_cta_heading
-          - label: "Call to action button text"
-            name: services_cta_button_text
+            name: "services_cta_heading"
+          - label: "Call to action text"
+            name: "services_cta_text"
+          - label: "Call to action link"
+            name: "services_cta_link"
+          - label: "Call to action icon"
+            name: "services_cta_icon"
+            hint: "Must be a [Material Icon](https://mui.com/components/material-icons/)"
       - label: "About"
         name: "about"
         file: "content/about.md"
@@ -120,6 +119,7 @@ collections:
                     name: "link_name"
                   - label: "Icon"
                     name: "link_icon"
+                    hint: "Must be a [Material Icon](https://mui.com/components/material-icons/)"
                   - label: "URL"
                     name: "link_url"
                   - label: "Description"
@@ -146,17 +146,40 @@ collections:
         fields:
           - label: "Contact buttons intro"
             name: "contact_buttons_intro"
+          - label: "Contact buttons"
+            name: "contact_buttons"
+            widget: "list"
+            fields:
+              - label: "Contact Button"
+                name: "contact_button"
+                widget: "object"
+                fields:
+                  - label: "Primary text"
+                    name: "contact_method_primary"
+                    hint: 'e.g. "Phone"'
+                  - label: "Secondary text"
+                    name: "contact_method_primary"
+                    hint: 'e.g. "123 456 789"'
+                    required: false
+                  - label: "Icon"
+                    name: "contact_method_icon"
+                    hint: "Must be a [Material Icon](https://mui.com/components/material-icons/)"
           - label: "Silent phone warning"
             name: "silent_phone_warning"
             widget: "text"
           - label: "Contact form introduction"
-            name: contact_form_intro
+            name: "contact_form_intro"
+          - label: "Contact form send button text"
+            name: "contact_form_send_button_text"
+          - label: "Contact form send button icon"
+            name: "contact_form_send_button_icon"
+            hint: "Must be a [Material Icon](https://mui.com/components/material-icons/) "
           - label: "Message sending text"
-            name: contact_form_message_sending
+            name: "contact_form_message_sending"
           - label: "Message error text"
-            name: contact_form_message_error
+            name: "contact_form_message_error"
           - label: "Message sent text"
-            name: contact_form_message_sent
+            name: "contact_form_message_sent"
   - label: "Admin"
     name: "admin"
     editor:
@@ -167,8 +190,8 @@ collections:
         file: "content/contact-info.md"
         fields:
           - label: "Phone"
-            name: phone
+            name: "phone"
           - label: "Email"
-            name: email
+            name: "email"
           - label: "Instagram"
-            name: instagram
+            name: "instagram"

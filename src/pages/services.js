@@ -15,6 +15,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { Cellphone, Laptop, Phone, Web } from "mdi-material-ui"
 import React from "react"
 import { connect } from "react-redux"
+import PageWrapper from "../components/PageWrapper"
 
 import Seo from "../components/seo"
 
@@ -50,7 +51,7 @@ function ServicesPage({ isMobile }) {
     </Box>
   )
   return (
-    <>
+    <PageWrapper>
       <Seo title="Services" />
       <Container maxWidth="md">
         <Typography variant="h2" gutterBottom>
@@ -213,7 +214,7 @@ function ServicesPage({ isMobile }) {
           </Button>
         </Box>
       </Container>
-    </>
+    </PageWrapper>
   )
 }
 

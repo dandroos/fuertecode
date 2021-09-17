@@ -1,6 +1,6 @@
 import {
   AT_TOP,
-  FONTS_LOADED,
+  ASSETS_LOADED,
   IS_MOBILE,
   MOBILE_MENU,
   SITE_READY,
@@ -26,7 +26,7 @@ export const setAtTop = payload => ({
   payload,
 })
 
-export const setFontsLoaded = payload => ({
-  type: FONTS_LOADED,
+export const setAssetsLoaded = payload => ({
+  type: ASSETS_LOADED,
   payload,
 })

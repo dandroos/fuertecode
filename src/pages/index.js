@@ -1,15 +1,22 @@
-import { Box, Button, Container, Typography, useTheme } from "@material-ui/core"
+import {
+  Box,
+  Button,
+  Container,
+  Icon,
+  Typography,
+  useTheme,
+} from "@material-ui/core"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { InformationOutline } from "mdi-material-ui"
 import * as React from "react"
 import { connect } from "react-redux"
 
+import PageWrapper from "../components/PageWrapper"
 import Seo from "../components/seo"
 
 const IndexPage = ({ isMobile }) => {
   return (
-    <>
+    <PageWrapper>
       <Seo title="Home" />
       <Box
         display="flex"
@@ -72,7 +79,7 @@ const IndexPage = ({ isMobile }) => {
               size="large"
               color="secondary"
               variant="contained"
-              startIcon={<InformationOutline />}
+              startIcon={<Icon>info</Icon>}
               component={Link}
               to="/services"
             >
@@ -81,7 +88,7 @@ const IndexPage = ({ isMobile }) => {
           </Container>
         </Box>
       </Box>
-    </>
+    </PageWrapper>
   )
 }
 const mapStateToProps = state => ({

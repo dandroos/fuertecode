@@ -1,8 +1,11 @@
-import React from "react"
-import wrapWithProvider from "./wrapWithProvider"
-import Layout from "./src/components/layout"
+/* eslint-disable import/prefer-default-export */
+import * as React from "react"
+import TopLayout from "./TopLayout"
+import Layout from "../../src/components/layout"
 
-export const wrapRootElement = wrapWithProvider
+export const wrapRootElement = ({ element }) => {
+  return <TopLayout>{element}</TopLayout>
+}
 
 export const wrapPageElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>

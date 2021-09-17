@@ -1,13 +1,7 @@
-import {
-  AT_TOP,
-  FONTS_LOADED,
-  IS_MOBILE,
-  MOBILE_MENU,
-  SITE_READY,
-} from "./types"
+import { AT_TOP, ASSETS_LOADED, IS_MOBILE, MOBILE_MENU } from "./types"
 
 const initialState = {
-  fontsLoaded: false,
+  assetsLoaded: false,
   siteReady: false,
   isMobile: false,
   showMobileMenu: false,
@@ -18,11 +12,8 @@ const reducer = (state = initialState, { type, payload }) => {
   const newState = Object.assign({}, state)
 
   switch (type) {
-    case FONTS_LOADED:
-      newState.fontsLoaded = payload
-      break
-    case SITE_READY:
-      newState.siteReady = payload
+    case ASSETS_LOADED:
+      newState.assetsLoaded = payload
       break
     case IS_MOBILE:
       newState.isMobile = payload

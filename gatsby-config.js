@@ -1,3 +1,5 @@
+const style = require("./style.json")
+
 module.exports = {
   siteMetadata: {
     title: `Fuertecode`,
@@ -7,6 +9,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-top-layout`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-material-ui`,
     `gatsby-plugin-image`,
@@ -26,20 +29,15 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        stripMetadata: false,
-      },
-    },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `fuertecode`,
+        short_name: `fuertecode`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: style.colors.primary,
+        theme_color: style.colors.primary,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
