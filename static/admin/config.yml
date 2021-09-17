@@ -158,7 +158,7 @@ collections:
                     name: "contact_method_primary"
                     hint: 'e.g. "Phone"'
                   - label: "Secondary text"
-                    name: "contact_method_primary"
+                    name: "contact_method_secondary"
                     hint: 'e.g. "123 456 789"'
                     required: false
                   - label: "Icon"
