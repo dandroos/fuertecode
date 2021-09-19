@@ -7,30 +7,60 @@ import MyLinks from "../components/MyLinks"
 
 import Seo from "../components/seo"
 import PageWrapper from "../components/PageWrapper"
+import { graphql, useStaticQuery } from "gatsby"
+import ReactMarkdown from "react-markdown"
 
 function AboutPage({ isMobile }) {
+  const cms = useStaticQuery(graphql`
+    {
+      file(
+        sourceInstanceName: { eq: "content" }
+        name: { eq: "about" }
+        extension: { eq: "md" }
+      ) {
+        childMarkdownRemark {
+          frontmatter {
+            about_heading
+            biog
+            my_links {
+              link {
+                link_name
+                link_icon
+                link_url
+                link_description
+              }
+            }
+            toolbox {
+              toolbox_languages {
+                toolbox_language
+              }
+              toolbox_other {
+                toolbox_technology
+              }
+            }
+          }
+        }
+      }
+    }
+  `).file.childMarkdownRemark.frontmatter
+
   return (
     <PageWrapper>
       <Seo title="About" />
       <Container>
-        <Typography variant="h2">About</Typography>
+        <Typography variant="h2">{cms.about_heading}</Typography>
         <Grid container spacing={3}>
           <Grid item xs={12} md={7}>
-            <Typography paragraph>
-              Hi! My name is Dave! I am an Englishman fast-approaching middle
-              age (fine by me! &#128514;) and have been living happily on the
-              Canary Island of Fuerteventura for the past few years. When I am
-              not in front of a computer, I am usually volunteering at my local
-              dog rescue centre. I enjoy hanging out with, and taking photos of,
-              all the dogs! I am also an amateur musician and enjoy playing the
-              piano to unwind.
-            </Typography>
-            <Typography paragraph>
-              I am a full-stack web developer, primarily working with the MERN
-              stack and Gatsby. However, I have experience with other languages
-              and tech, such as Python, PHP, Go, Electron, WordPress, Django,
-              Laravel and more!
-            </Typography>
+            <ReactMarkdown
+              components={{
+                p: ({ node }) => {
+                  const { value } = node.children[0]
+                  return <Typography paragraph>{value}</Typography>
+                },
+              }}
+            >
+              {cms.biog}
+            </ReactMarkdown>
             {isMobile ? <Gallery /> : <MyLinks />}
           </Grid>
           <Grid item xs={12} md>

@@ -4,6 +4,7 @@ import {
   AppBar,
   Box,
   Button,
+  Icon,
   IconButton,
   Toolbar,
   Typography,
@@ -11,7 +12,6 @@ import {
 import { Link, navigate } from "gatsby"
 import { connect } from "react-redux"
 import useNavigation from "../hooks/useNavigation"
-import { Menu } from "mdi-material-ui"
 import { setMobileMenu } from "../state/actions"
 import Logo from "./Logo"
 
@@ -44,7 +44,7 @@ const Navbar = ({ dispatch, isMobile, siteTitle, atTop }) => {
             color="inherit"
             onClick={() => dispatch(setMobileMenu(true))}
           >
-            <Menu />
+            <Icon className="fas fa-bars" />
           </IconButton>
         ) : (
           <>
@@ -57,7 +57,7 @@ const Navbar = ({ dispatch, isMobile, siteTitle, atTop }) => {
                   component={Link}
                   to={i.link}
                   style={{
-                    marginRight: ind !== internal.length - 1 ? 28 : undefined,
+                    marginRight: ind !== internal.length - 1 ? 28 : 14,
                     transition: "all .1s",
                   }}
                   activeStyle={{ fontWeight: "bold" }}
@@ -75,7 +75,7 @@ const Navbar = ({ dispatch, isMobile, siteTitle, atTop }) => {
                 target="_blank"
                 edge={ind === external.length - 1 ? "end" : undefined}
               >
-                <i.Icon />
+                <Icon className={i.icon} fontSize="small" />
               </IconButton>
             ))}
           </>

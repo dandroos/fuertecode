@@ -4,8 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `Fuertecode`,
     description: `My name is Dave. I make websites, web apps, mobile apps, standalone applications and more using the latest industry-standard technology.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://fuertecode.netlify.app/`,
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,

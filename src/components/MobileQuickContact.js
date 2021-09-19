@@ -1,15 +1,32 @@
 import {
   Fab,
+  Icon,
   ListItemIcon,
   ListItemText,
   Menu,
   MenuItem,
 } from "@material-ui/core"
-import { Phone, Whatsapp } from "mdi-material-ui"
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import { connect } from "react-redux"
 
 function MobileQuickContact({ isMobile }) {
+  const cms = useStaticQuery(graphql`
+    {
+      file(
+        sourceInstanceName: { eq: "content" }
+        name: { eq: "contact-info" }
+        extension: { eq: "md" }
+      ) {
+        childMarkdownRemark {
+          frontmatter {
+            phone
+          }
+        }
+      }
+    }
+  `).file.childMarkdownRemark.frontmatter
+
   const [anchorEl, setAnchorEl] = React.useState(null)
 
   const handleOpen = e => {
@@ -30,27 +47,31 @@ function MobileQuickContact({ isMobile }) {
         >
           <MenuItem
             component="a"
-            href="https://wa.me/123456789"
+            href={`https://wa.me/34${cms.phone.replaceAll(" ", "")}`}
             target="_blank"
           >
             <ListItemIcon>
-              <Whatsapp />
+              <Icon className="fab fa-whatsapp" />
             </ListItemIcon>
-            <ListItemText primary="WhatsApp me" secondary="123 456 789" />
+            <ListItemText primary="WhatsApp me" secondary={cms.phone} />
           </MenuItem>
-          <MenuItem component="a" href="tel:123456789" target="_blank">
+          <MenuItem
+            component="a"
+            href={`tel:34${cms.phone.replaceAll(" ", "")}`}
+            target="_blank"
+          >
             <ListItemIcon>
-              <Phone />
+              <Icon className="fas fa-phone" />
             </ListItemIcon>
-            <ListItemText primary="Phone me" secondary="123 456 789" />
+            <ListItemText primary="Phone me" secondary={cms.phone} />
           </MenuItem>
         </Menu>
         <Fab
-          style={{ position: "fixed", bottom: 20, right: 20, zIndex: 40 }}
+          style={{ position: "fixed", bottom: 20, right: 20, zIndex: 400 }}
           onClick={handleOpen}
           color="secondary"
         >
-          <Whatsapp />
+          <Icon className="fab fa-whatsapp" />
         </Fab>
       </>
     )

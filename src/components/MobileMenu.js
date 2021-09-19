@@ -2,6 +2,8 @@ import {
   Box,
   Dialog,
   Fab,
+  Icon,
+  IconButton,
   List,
   ListItem,
   ListItemText,
@@ -10,7 +12,6 @@ import {
   Typography,
 } from "@material-ui/core"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import { Close } from "mdi-material-ui"
 import React from "react"
 import { connect } from "react-redux"
 import useNavigation from "../hooks/useNavigation"
@@ -44,7 +45,7 @@ function MobileMenu({ dispatch, isOpen }) {
           style={{ position: "fixed", top: 15, right: 15 }}
           onClick={handleClose}
         >
-          <Close />
+          <Icon className="fas fa-times" />
         </Fab>
         <Box
           minHeight="100vh"
@@ -82,6 +83,18 @@ function MobileMenu({ dispatch, isOpen }) {
               </ListItem>
             ))}
           </List>
+          <Box>
+            {useNavigation().external.map((i, ind) => (
+              <IconButton
+                key={ind}
+                className={i.icon}
+                color="inherit"
+                component="a"
+                href={i.link}
+                target="_blank"
+              />
+            ))}
+          </Box>
         </Box>
       </Dialog>
     </Portal>

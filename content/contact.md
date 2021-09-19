@@ -1,4 +1,5 @@
 ---
+contact_heading: Contact
 contact_buttons_intro: You can contact me via the following methods...
 contact_buttons:
   - contact_button:

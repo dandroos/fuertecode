@@ -1,5 +1,6 @@
 ---
 services_heading: Services
+services_intro: With over 20 years coding experience, I have acquired a wealth of knowledge to provide you with an expert service. Here are just some of the things I can build for you...
 services:
   - service:
       service_heading: Websites and Web Apps
@@ -33,7 +34,9 @@ services:
         Interface). There are too many use cases for standalone applications to
         list here, but if you can think of a repetitive task you perform on your
         computer, there is a big possibility that it can be automated!
+faq_heading: Frequently Asked Questions
 faq_image: images/dog_raising_paw.jpg
+faq_image_caption: "Nothing to see here. Just a cute dog putting her paw up! (Photo: Camylla Battani)"
 faqs:
   - faq:
       question: Where is your price list?
@@ -44,6 +47,21 @@ faqs:
         applicable) so you can see exactly what you are paying for. I charge a
         fair rate for my services and I check my competitors prices regularly to
         ensure I am offering you the best price.
+  - faq:
+      question: How does payment work?
+      answer: Similar to the process of many developers, I request half the total costs for the project before commencing work and the remainder upon completion (and of course, your satisfaction!).
+  - faq:
+      question: Am I protected?
+      answer: Of course! We sign a contract for our mutual protection. Don't worry though, it is not a complicated contract and the basic gist is that you are legally fully protected from any 'shenanigans'....and so am I!
+  - faq:
+      question: Can you explain things to me without using jargon?
+      answer: Yes. I don't expect everyone to know the ins and outs of development. That's why it is a specialist area and why you should hire a specialist to carry out the work! Some of the concepts of developing applications are abstract and so I like to explain the processes using analogies (usually restaurant analogies!). That said, if you'd rather not know how it works, I completely understand and respect that too!
+  - faq:
+      question: Are you contactable by phone?
+      answer: I am, but please bear in mind that I may not be able to answer your call immediately. The reason being that writing code requires focus so I put my phone on silent when I am working. If you leave a message, I will call you back as soon as I see it. I check my phone intermittently through the day and I have a number you can call in case of emergencies.
+  - faq:
+      question: How often will I receive progress updates?
+      answer: At the end of every working day, I will send you a progress report so that you can stay up-to-date on where I am with your project.
 services_cta_heading: Want to know more?
 services_cta_text: Get in touch
 services_cta_link: /contact

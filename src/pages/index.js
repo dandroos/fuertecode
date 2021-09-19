@@ -7,7 +7,7 @@ import {
   useTheme,
 } from "@material-ui/core"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import * as React from "react"
 import { connect } from "react-redux"
 
@@ -15,6 +15,49 @@ import PageWrapper from "../components/PageWrapper"
 import Seo from "../components/seo"
 
 const IndexPage = ({ isMobile }) => {
+  const cms = useStaticQuery(graphql`
+    {
+      file(
+        sourceInstanceName: { eq: "content" }
+        name: { eq: "homepage" }
+        extension: { eq: "md" }
+      ) {
+        childMarkdownRemark {
+          frontmatter {
+            homepage_cta_text
+            homepage_cta_link
+            homepage_cta_icon
+            homepage_heading
+            homepage_subheading
+            homepage_image_landscape {
+              childImageSharp {
+                gatsbyImageData(
+                  aspectRatio: 1.3333333333
+                  quality: 90
+                  layout: FULL_WIDTH
+                  transformOptions: { fit: COVER }
+                )
+              }
+            }
+            homepage_image_portrait {
+              childImageSharp {
+                gatsbyImageData(
+                  aspectRatio: 0.5625
+                  layout: FULL_WIDTH
+                  quality: 90
+                  transformOptions: { fit: COVER }
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  `).file.childMarkdownRemark.frontmatter
+
+  const landscapeImage = getImage(cms.homepage_image_landscape)
+  const portraitImage = getImage(cms.homepage_image_portrait)
+
   return (
     <PageWrapper>
       <Seo title="Home" />
@@ -30,23 +73,15 @@ const IndexPage = ({ isMobile }) => {
       >
         <Box width="100vw" height="100vh" position="fixed">
           {isMobile ? (
-            <StaticImage
-              alt="Dave the Fuerte Nerd"
-              quality={90}
-              aspectRatio={9 / 16}
-              src="../images/dave1.jpg"
-              objectFit="cover"
-              layout="fullWidth"
+            <GatsbyImage
+              image={portraitImage}
+              alt="Dave from Fuertecode"
               style={{ height: "100%" }}
             />
           ) : (
-            <StaticImage
-              alt="Dave the Fuerte Nerd"
-              quality={90}
-              aspectRatio={4 / 3}
-              src="../images/dave_landscape.jpg"
-              objectFit="cover"
-              layout="fullWidth"
+            <GatsbyImage
+              image={landscapeImage}
+              alt="Dave from Fuertecode"
               style={{ height: "100%" }}
             />
           )}
@@ -64,7 +99,7 @@ const IndexPage = ({ isMobile }) => {
           }}
         >
           <Container maxWidth="lg">
-            <Typography variant="h1">Hi, I'm Dave!</Typography>
+            <Typography variant="h2">{cms.homepage_heading}</Typography>
             <Typography
               style={{
                 width: isMobile ? undefined : "45%",
@@ -72,18 +107,17 @@ const IndexPage = ({ isMobile }) => {
               }}
               paragraph
             >
-              I make professional websites, web apps, mobile apps, standalone
-              apps and more using the latest industry-standard tech.
+              {cms.homepage_subheading}
             </Typography>
             <Button
               size="large"
               color="secondary"
               variant="contained"
-              startIcon={<Icon className="fas fa-concierge-bell" />}
+              startIcon={<Icon className={cms.homepage_cta_icon} />}
               component={Link}
-              to="/services"
+              to={cms.homepage_cta_link}
             >
-              How can I help?
+              {cms.homepage_cta_text}
             </Button>
           </Container>
         </Box>

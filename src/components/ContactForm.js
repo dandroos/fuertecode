@@ -1,16 +1,38 @@
-import React from "react"
 import {
-  Typography,
-  Grid,
-  TextField,
   Box,
   Button,
+  Grid,
+  Icon,
   Snackbar,
+  TextField,
+  Typography,
 } from "@material-ui/core"
 import { Alert } from "@material-ui/lab"
-import { Send } from "mdi-material-ui"
+import { graphql, useStaticQuery } from "gatsby"
+import React from "react"
 
 const ContactForm = () => {
+  const cms = useStaticQuery(graphql`
+    {
+      file(
+        sourceInstanceName: { eq: "content" }
+        name: { eq: "contact" }
+        extension: { eq: "md" }
+      ) {
+        childMarkdownRemark {
+          frontmatter {
+            contact_form_intro
+            contact_form_message_error
+            contact_form_message_sending
+            contact_form_message_sent
+            contact_form_send_button_icon
+            contact_form_send_button_text
+          }
+        }
+      }
+    }
+  `).file.childMarkdownRemark.frontmatter
+
   const [fields, setFields] = React.useState({
     name: "",
     email: "",
@@ -52,7 +74,7 @@ const ContactForm = () => {
       .then(() => {
         setToast({
           open: true,
-          msg: "Thanks. Your message was successfully sent. I will respond as soon as possible.",
+          msg: cms.contact_form_message_sent,
           severity: "success",
         })
         setFields({
@@ -65,17 +87,14 @@ const ContactForm = () => {
       .catch(() =>
         setToast({
           open: true,
-          msg: "Sorry. There was a problem sending your message. Please try again later or try another contact method.",
+          msg: cms.contact_form_message_error,
           severity: "error",
         })
       )
   }
   return (
     <>
-      <Typography gutterBottom>
-        You can also send me a message by completing and submitting the below
-        form...
-      </Typography>
+      <Typography gutterBottom>{cms.contact_form_intro}</Typography>
       <form
         name="contact"
         action="#"
@@ -140,10 +159,11 @@ const ContactForm = () => {
           <Button
             variant="contained"
             color="secondary"
-            endIcon={<Send />}
+            endIcon={<Icon className={cms.contact_form_send_button_icon} />}
             type="submit"
+            size="large"
           >
-            Send
+            {cms.contact_form_send_button_text}
           </Button>
         </Box>
       </form>

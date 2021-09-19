@@ -1,5 +1,3 @@
-import { Instagram } from "mdi-material-ui"
-
 const navigation = () => {
   return {
     internal: [
@@ -23,8 +21,13 @@ const navigation = () => {
     external: [
       {
         label: "Instagram",
-        link: "https://instagram.com",
-        Icon: Instagram,
+        link: "https://instagram.com/fuertecode",
+        icon: "fab fa-instagram",
+      },
+      {
+        label: "Facebook",
+        link: "https://facebook.com/fuertecode",
+        icon: "fab fa-facebook",
       },
     ],
   }

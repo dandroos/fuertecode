@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core"
+import { Box, Typography } from "@material-ui/core"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
@@ -7,36 +7,50 @@ import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 function Gallery() {
-  const images = useStaticQuery(graphql`
+  const { gallery_images } = useStaticQuery(graphql`
     {
-      images: allFile(
-        filter: { sourceInstanceName: { eq: "gallery-images" } }
+      file(
+        sourceInstanceName: { eq: "content" }
+        name: { eq: "gallery" }
+        extension: { eq: "md" }
       ) {
-        edges {
-          node {
-            childImageSharp {
-              gatsbyImageData(
-                aspectRatio: 0.90
-                quality: 100
-                layout: FULL_WIDTH
-              )
-              id
+        childMarkdownRemark {
+          frontmatter {
+            gallery_images {
+              gallery_image {
+                caption
+                image {
+                  childImageSharp {
+                    gatsbyImageData(
+                      aspectRatio: 0.9
+                      quality: 100
+                      layout: FULL_WIDTH
+                    )
+                  }
+                }
+              }
             }
           }
         }
       }
     }
-  `).images.edges
+  `).file.childMarkdownRemark.frontmatter
 
   return (
     <Carousel infiniteLoop autoPlay showStatus={false} showThumbs={false}>
-      {images &&
-        images.map((i, ind) => (
+      {gallery_images &&
+        gallery_images.map((i, ind) => (
           <Box key={ind}>
             <GatsbyImage
-              image={getImage(i.node)}
-              alt={`Dave the Fuertenerd ${ind + 1}`}
+              image={getImage(i.gallery_image.image)}
+              alt={i.gallery_image.caption}
             />
+            <Typography
+              className="legend"
+              style={{ opacity: 0.7, borderRadius: 0 }}
+            >
+              {i.gallery_image.caption}
+            </Typography>
           </Box>
         ))}
     </Carousel>

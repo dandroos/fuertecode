@@ -9,29 +9,36 @@ biog: >-
 
 
   I am a full-stack web developer, primarily working with the MERN stack and Gatsby. However, I have experience with other languages and tech, such as Python, PHP, Go, Electron, WordPress, Django, Laravel and more!
+my_links_heading: My Links
 my_links:
   - link:
       link_name: Instagram
       link_icon: fab fa-instagram
       link_url: https://instagram.com/prosprwebdev
-      link_description: If photos of dogs are your thing, then this is the place! I
+      link_description:
+        If photos of dogs are your thing, then this is the place! I
         sometimes post about my work here, but lovely rescue doggies make for
         much better photos!
   - link:
       link_name: GitHub
       link_icon: fab fa-github
       link_url: https://github.com/fuertecode
-      link_description: GitHub is a code repository. If you would like to see examples
+      link_description:
+        GitHub is a code repository. If you would like to see examples
         of my work, here is where you will find them. You'll also get a glimpse
         at what the code looks like 'under the hood'!
   - link:
       link_name: Facebook
       link_icon: fab fa-facebook
       link_url: https://facebook.com/prosprwebdev
-      link_description: I tend to use Facebook for marketing purposes only, so not
+      link_description:
+        I tend to use Facebook for marketing purposes only, so not
         much to see here! That said, if you would like to follow and share my
         page, I would be very grateful!
 toolbox:
+  toolbox_heading: My Toolbox
+  programmingweb_languages_heading: Programming/Web Languages
+  other_tech_heading: Other Tech
   toolbox_languages:
     - toolbox_language: JavaScript
     - toolbox_language: Go
