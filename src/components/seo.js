@@ -47,7 +47,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: site.siteMetadata.siteUrl + "fuertecode_og.png",
+          content: site.siteMetadata.siteUrl + "/fuertecode_og.png",
         },
         {
           name: `twitter:card`,
