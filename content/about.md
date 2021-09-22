@@ -1,8 +1,8 @@
 ---
 about_heading: About
 biog: >-
-  Hi! My name is Dave! I am an Englishman fast-approaching middle age and I have
-  been living happily on the Canary Island of Fuerteventura for the past few
+  Hi! My name is Dave! I am an Englishman fast-approaching middle age(!) and I have
+  been living happily on Fuerteventura (one of the Canary Islands) for the past few
   years. When I am not in front of a computer, I am usually volunteering at my
   local dog rescue centre. I enjoy hanging out with, and taking photos of, all
   the dogs! I am also an amateur musician and enjoy playing the piano to unwind.
@@ -14,7 +14,7 @@ my_links:
   - link:
       link_name: Instagram
       link_icon: fab fa-instagram
-      link_url: https://instagram.com/prosprwebdev
+      link_url: https://instagram.com/fuertecode
       link_description:
         If photos of dogs are your thing, then this is the place! I
         sometimes post about my work here, but lovely rescue doggies make for
@@ -30,7 +30,7 @@ my_links:
   - link:
       link_name: Facebook
       link_icon: fab fa-facebook
-      link_url: https://facebook.com/prosprwebdev
+      link_url: https://facebook.com/fuertecode
       link_description:
         I tend to use Facebook for marketing purposes only, so not
         much to see here! That said, if you would like to follow and share my

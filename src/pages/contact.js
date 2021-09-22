@@ -12,6 +12,7 @@ import {
 import { Alert } from "@material-ui/lab"
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
+import { Fade } from "react-awesome-reveal"
 import { connect } from "react-redux"
 
 import ContactForm from "../components/ContactForm"
@@ -124,29 +125,37 @@ function ContactPage({ isMobile }) {
     <PageWrapper>
       <Seo title="Contact" />
       <Container maxWidth="md">
-        <Typography variant="h2" gutterBottom>
-          {cms.contact_heading}
-        </Typography>
-        <Typography gutterBottom>{cms.contact_buttons_intro}</Typography>
-        <Grid container spacing={1}>
-          {cms.contact_buttons.map(({ contact_button }, ind) => (
-            <Grid item xs={12} md={4} key={ind}>
-              <ContactMethod
-                primary={contact_button.contact_method_primary}
-                secondary={contact_button.contact_method_secondary}
-                url={contact_button.contact_method_url}
-                icon={contact_button.contact_method_icon}
-              />
+        <Fade triggerOnce>
+          <Typography variant="h2" gutterBottom>
+            {cms.contact_heading}
+          </Typography>
+        </Fade>
+        <Fade triggerOnce>
+          <Typography gutterBottom>{cms.contact_buttons_intro}</Typography>
+        </Fade>
+        <Fade triggerOnce>
+          <Grid container spacing={1}>
+            {cms.contact_buttons.map(({ contact_button }, ind) => (
+              <Grid item xs={12} md={4} key={ind}>
+                <ContactMethod
+                  primary={contact_button.contact_method_primary}
+                  secondary={contact_button.contact_method_secondary}
+                  url={contact_button.contact_method_url}
+                  icon={contact_button.contact_method_icon}
+                />
+              </Grid>
+            ))}
+            <Grid item xs={12}>
+              <Alert variant="outlined" severity="warning">
+                {cms.silent_phone_warning}
+              </Alert>
             </Grid>
-          ))}
-          <Grid item xs={12}>
-            <Alert variant="outlined" severity="warning">
-              {cms.silent_phone_warning}
-            </Alert>
           </Grid>
-        </Grid>
+        </Fade>
         <Box mt={3}>
-          <ContactForm />
+          <Fade triggerOnce>
+            <ContactForm />
+          </Fade>
         </Box>
       </Container>
     </PageWrapper>

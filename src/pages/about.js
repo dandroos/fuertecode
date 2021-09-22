@@ -9,6 +9,7 @@ import Seo from "../components/seo"
 import PageWrapper from "../components/PageWrapper"
 import { graphql, useStaticQuery } from "gatsby"
 import ReactMarkdown from "react-markdown"
+import { Fade } from "react-awesome-reveal"
 
 function AboutPage({ isMobile }) {
   const cms = useStaticQuery(graphql`
@@ -48,24 +49,30 @@ function AboutPage({ isMobile }) {
     <PageWrapper>
       <Seo title="About" />
       <Container>
-        <Typography variant="h2">{cms.about_heading}</Typography>
+        <Fade triggerOnce>
+          <Typography variant="h2">{cms.about_heading}</Typography>
+        </Fade>
         <Grid container spacing={3}>
           <Grid item xs={12} md={7}>
-            <ReactMarkdown
-              components={{
-                p: ({ node }) => {
-                  const { value } = node.children[0]
-                  return <Typography paragraph>{value}</Typography>
-                },
-              }}
-            >
-              {cms.biog}
-            </ReactMarkdown>
-            {isMobile ? <Gallery /> : <MyLinks />}
+            <Fade triggerOnce>
+              <ReactMarkdown
+                components={{
+                  p: ({ node }) => {
+                    const { value } = node.children[0]
+                    return <Typography paragraph>{value}</Typography>
+                  },
+                }}
+              >
+                {cms.biog}
+              </ReactMarkdown>
+            </Fade>
+            <Fade triggerOnce>{isMobile ? <Gallery /> : <MyLinks />}</Fade>
           </Grid>
           <Grid item xs={12} md>
-            {isMobile ? <MyLinks /> : <Gallery />}
-            <Toolbox />
+            <Fade triggerOnce>{isMobile ? <MyLinks /> : <Gallery />}</Fade>
+            <Fade triggerOnce>
+              <Toolbox />
+            </Fade>
           </Grid>
         </Grid>
       </Container>

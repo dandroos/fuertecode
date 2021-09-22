@@ -6,6 +6,7 @@ import {
   Typography,
   useTheme,
 } from "@material-ui/core"
+import { Fade } from "react-awesome-reveal"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import * as React from "react"
@@ -99,26 +100,28 @@ const IndexPage = ({ isMobile }) => {
           }}
         >
           <Container maxWidth="lg">
-            <Typography variant="h2">{cms.homepage_heading}</Typography>
-            <Typography
-              style={{
-                width: isMobile ? undefined : "45%",
-                fontSize: isMobile ? "1.1rem" : "1.3rem",
-              }}
-              paragraph
-            >
-              {cms.homepage_subheading}
-            </Typography>
-            <Button
-              size="large"
-              color="secondary"
-              variant="contained"
-              startIcon={<Icon className={cms.homepage_cta_icon} />}
-              component={Link}
-              to={cms.homepage_cta_link}
-            >
-              {cms.homepage_cta_text}
-            </Button>
+            <Fade delay={750} cascade>
+              <Typography variant="h2">{cms.homepage_heading}</Typography>
+              <Typography
+                style={{
+                  width: isMobile ? undefined : "45%",
+                  fontSize: isMobile ? "1.1rem" : "1.3rem",
+                }}
+                paragraph
+              >
+                {cms.homepage_subheading}
+              </Typography>
+              <Button
+                size="large"
+                color="secondary"
+                variant="contained"
+                startIcon={<Icon className={cms.homepage_cta_icon} />}
+                component={Link}
+                to={cms.homepage_cta_link}
+              >
+                {cms.homepage_cta_text}
+              </Button>
+            </Fade>
           </Container>
         </Box>
       </Box>
