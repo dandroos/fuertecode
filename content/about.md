@@ -8,7 +8,7 @@ biog: >-
   the dogs! I am also an amateur musician and enjoy playing the piano to unwind.
 
 
-  I am a full-stack web developer, primarily working with the MERN stack and Gatsby. However, I have experience with other languages and tech, such as Python, PHP, Go, Electron, WordPress, Django, Laravel and more!
+  I am a freelance software developer. For web work, I primarily working with React and Gatsby. However, I have experience with other languages and tech, such as Python, PHP, Go, Electron, WordPress, Django, Laravel and more!
 my_links_heading: My Links
 my_links:
   - link:

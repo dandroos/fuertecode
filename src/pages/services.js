@@ -107,7 +107,7 @@ function ServicesPage({ isMobile }) {
       <Faqs />
       <Container>
         <Box align="center">
-          <Fade cascade>
+          <Fade triggerOnce>
             <Typography gutterBottom variant="h4">
               {cms.services_cta_heading}
             </Typography>

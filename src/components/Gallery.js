@@ -37,7 +37,13 @@ function Gallery() {
   `).file.childMarkdownRemark.frontmatter
 
   return (
-    <Carousel infiniteLoop autoPlay showStatus={false} showThumbs={false}>
+    <Carousel
+      infiniteLoop
+      autoPlay
+      interval={5000}
+      showStatus={false}
+      showThumbs={false}
+    >
       {gallery_images &&
         gallery_images.map((i, ind) => (
           <Box key={ind}>

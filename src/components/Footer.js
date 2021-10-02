@@ -20,7 +20,7 @@ function Footer() {
   }
   return (
     <Box maxWidth="sm" align="center" my={3}>
-      <Fade triggerOnce cascade>
+      <Fade triggerOnce>
         <Logo style={{ fontSize: 38 }} />
         <Typography variant="h6">{title}</Typography>
         <Typography variant="caption" display="block" align="center">
